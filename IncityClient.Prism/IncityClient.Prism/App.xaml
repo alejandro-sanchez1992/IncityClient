@@ -12,17 +12,43 @@
             <x:String x:Key="UrlNoImage">https://travelexpensesweb.azurewebsites.net/images/noimage.png</x:String>
             <x:String x:Key="UrlNoImage2">https://travelexpensesweb.azurewebsites.net/images/noimage2.png</x:String>
 
-            <Color x:Key="ColorBackgroud">#FFFFFF</Color>
+            <Color x:Key="ColorBackgroud">#f9f9f9</Color>
             <Color x:Key="ColorSecondary">#A6ABAB</Color>
+            <Color x:Key="LightGreenColor">#2FA999</Color>    
+            <Color x:Key="BorderColor">#e6e6e6</Color>
+            <Color x:Key="TextColor">#d70000</Color>
+
+
 
             <!--Global Styles-->
-            <Color x:Key="NavigationPrimary">#FCA741</Color>
+            <Color x:Key="NavigationPrimary">#d70000</Color>
             <Style TargetType="NavigationPage">
                 <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
-                <Setter Property="BarTextColor" Value="White" />
+                <Setter Property="BarTextColor" Value="#FFFFFF" />
             </Style>
 
-            <Color x:Key="primary">#3ec3d5</Color>
+            <Color x:Key="primary">#d70000</Color>
+
+            <Style x:Key="LableStyle" TargetType="Label">    
+                <Setter Property="TextColor" Value="{StaticResource TextColor}" />    
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="Margin" Value="20,0,0,0" />
+            </Style>
+            
+            <Style x:Key="FrameStyle" TargetType="Frame">    
+                <Setter Property="HasShadow" Value="False" />    
+                <Setter Property="Padding" Value="10,0" />
+                <Setter Property="Margin" Value="0,0,0,10" />
+                <Setter Property="CornerRadius" Value="25" />
+                <Setter Property="BackgroundColor" Value="#e6e6e6" />
+                <Setter Property="BorderColor" Value="{StaticResource BorderColor}" />    
+            </Style>
+            
+            <Style x:Key="EntryStyle" TargetType="Entry">    
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="BackgroundColor" Value="#e6e6e6" />
+                <Setter Property="Margin" Value="5,0,0,0"></Setter>    
+            </Style>
 
         </ResourceDictionary>
     </Application.Resources>

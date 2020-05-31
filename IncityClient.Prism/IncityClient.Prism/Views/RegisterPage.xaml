@@ -1,13 +1,142 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:prism="http://prismlibrary.com"
-             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-             ios:Page.UseSafeArea="true"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="IncityClient.Prism.Views.RegisterPage"
+             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             xmlns:syncEffectsView="clr-namespace:Syncfusion.XForms.EffectsView;assembly=Syncfusion.Core.XForms"
+             NavigationPage.HasNavigationBar="True"
+             xmlns:resources="clr-namespace:IncityClient.Prism.Resources"
+             xmlns:controls="clr-namespace:IncityClient.Prism.Controls" 
              BackgroundColor="{StaticResource ColorBackgroud}"
              Title="{Binding Title}">
+
     <ContentPage.Content>
+        <AbsoluteLayout
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand">
+            <ScrollView
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="All">
+                <StackLayout Padding="15,10" Spacing="10">
+
+                    <Image HeightRequest="100"
+                            Margin="0,20,0,0"
+                            Source="logo_incity"/>
+
+                    <StackLayout VerticalOptions="CenterAndExpand">
+
+                        <StackLayout Padding="30, 0">
+
+                            <Label Style="{StaticResource LableStyle}" Text="{x:Static resources:Resource.FirstName}" />    
+                            <Frame Style="{StaticResource FrameStyle}">    
+                                <controls:CustomEntry
+                                    x:Name="txtFirstName"
+                                    Keyboard="Text"
+                                    Style="{StaticResource EntryStyle}">
+
+                                </controls:CustomEntry>    
+                            </Frame>
+
+                            <Label Style="{StaticResource LableStyle}" Text="{x:Static resources:Resource.LastName}" />    
+                            <Frame Style="{StaticResource FrameStyle}">    
+                                <controls:CustomEntry
+                                    x:Name="txtLastName"
+                                    Keyboard="Text"
+                                    Style="{StaticResource EntryStyle}">
+
+                                </controls:CustomEntry>    
+                            </Frame>
+
+                            <Label Style="{StaticResource LableStyle}" Text="{x:Static resources:Resource.Address}" />    
+                            <Frame Style="{StaticResource FrameStyle}">    
+                                <controls:CustomEntry
+                                    x:Name="txtAddress"
+                                    Keyboard="Text"
+                                    Style="{StaticResource EntryStyle}">
+
+                                </controls:CustomEntry>    
+                            </Frame>
+
+                            <Label Style="{StaticResource LableStyle}" Text="{x:Static resources:Resource.Phone}" />    
+                            <Frame Style="{StaticResource FrameStyle}">    
+                                <controls:CustomEntry
+                                    x:Name="txtPhone"
+                                    Keyboard="Telephone"
+                                    Style="{StaticResource EntryStyle}">
+
+                                </controls:CustomEntry>    
+                            </Frame>
+
+                            <Label Style="{StaticResource LableStyle}" Text="{x:Static resources:Resource.Email}" />    
+                            <Frame Style="{StaticResource FrameStyle}">    
+                                <controls:CustomEntry
+                                    x:Name="txtEmail"
+                                    Keyboard="Email"
+                                    Style="{StaticResource EntryStyle}">
+
+                                </controls:CustomEntry>    
+                            </Frame>
+
+                            <Label Style="{StaticResource LableStyle}" Text="{x:Static resources:Resource.Password}" />    
+                            <Frame Style="{StaticResource FrameStyle}">    
+                                <controls:CustomEntry
+                                    x:Name="txtPassword"
+                                    Keyboard="Text"
+                                    IsPassword="True"
+                                    Style="{StaticResource EntryStyle}">
+
+                                </controls:CustomEntry>    
+                            </Frame>
+
+                            <Label Style="{StaticResource LableStyle}" Text="{x:Static resources:Resource.PasswordConfirm}" />    
+                            <Frame Style="{StaticResource FrameStyle}">    
+                                <controls:CustomEntry
+                                    x:Name="txtPasswordConfirm"
+                                    Keyboard="Text"
+                                    IsPassword="True"
+                                    Style="{StaticResource EntryStyle}">
+
+                                </controls:CustomEntry>    
+                            </Frame>
+
+                            <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">        
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="0.15*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <CheckBox Grid.Row="1" Grid.Column="1" VerticalOptions="Center" Color="#d70000" />
+                                <Label Grid.Row="1" Grid.Column="2" Text="Acepto Términos y Condiciones" VerticalOptions="Center" />
+                            </Grid>
+
+                        </StackLayout>
+
+                        <syncEffectsView:SfEffectsView
+                            CornerRadius="0"
+                            TouchDownEffects="Scale">
+
+                            <controls:GradientButton
+                                Margin="0,20"
+                                BorderRadius="60"
+                                HeightRequest="45"
+                                EndColor="#d50000"
+                                HorizontalOptions="FillAndExpand"
+                                StartColor="#d70000"
+                                Text="{x:Static resources:Resource.Register}"
+                                Command="{Binding LoginCommand}"
+                                IsEnabled="{Binding IsEnabled}"
+                                TextColor="White" />
+
+                        </syncEffectsView:SfEffectsView>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

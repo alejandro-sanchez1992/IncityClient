@@ -35,7 +35,7 @@ namespace IncityClient.Prism
             }
             else
             {
-                await NavigationService.NavigateAsync($"/NavigationPage/{nameof(HomePage)}");
+                await NavigationService.NavigateAsync($"/NavigationPage/{nameof(LoginPage)}");
             }
         }
 

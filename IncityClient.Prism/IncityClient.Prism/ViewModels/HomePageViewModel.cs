@@ -7,7 +7,6 @@ namespace IncityClient.Prism.ViewModels
     public class HomePageViewModel : ViewModelBase
     {
         private readonly INavigationService _navigationService;
-        private DelegateCommand _addTripsCommand;
         private bool _isRunning;
         private bool _isEnabled;
         private static HomePageViewModel _instance;
