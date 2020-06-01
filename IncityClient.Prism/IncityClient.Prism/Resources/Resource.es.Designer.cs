@@ -65,24 +65,6 @@ namespace IncityClient.Prism.Resources {
             }
         }
         
-        internal static string AddTrip {
-            get {
-                return ResourceManager.GetString("AddTrip", resourceCulture);
-            }
-        }
-        
-        internal static string AddExpense {
-            get {
-                return ResourceManager.GetString("AddExpense", resourceCulture);
-            }
-        }
-        
-        internal static string CityName {
-            get {
-                return ResourceManager.GetString("CityName", resourceCulture);
-            }
-        }
-        
         internal static string PlaqueError1 {
             get {
                 return ResourceManager.GetString("PlaqueError1", resourceCulture);

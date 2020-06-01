@@ -16,6 +16,8 @@ namespace IncityClient.Common.interfaces
 
         Task<bool> CheckConnectionAsync(string url);
 
+        Task<Response<CustomerResponse>> GetUserByEmail(string urlBase, string servicePrefix, string controller, string tokenType, string accessToken, EmailRequest request);
+
         Task<Response<TokenResponse>> GetTokenAsync(string urlBase, string servicePrefix, string controller, TokenRequest request);
 
         Task<Response<object>> GetListAsync<T>(string urlBase, string servicePrefix, string controller, string tokenType, string accessToken);

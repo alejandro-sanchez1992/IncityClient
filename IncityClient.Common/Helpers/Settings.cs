@@ -4,8 +4,7 @@ namespace IncityClient.Common.Helpers
 {
     public static class Settings
     {
-        private const string _employee = "Employee";
-        private const string _trip = "Trip";
+        private const string _customer = "Customer";
         private const string _token = "token";
         private const string _isLogin = "isLogin";
         private const string _isRemembered = "IsRemembered";
@@ -14,16 +13,10 @@ namespace IncityClient.Common.Helpers
 
         private static ISettings AppSettings => CrossSettings.Current;
 
-        public static string Employee
+        public static string Customer
         {
-            get => AppSettings.GetValueOrDefault(_employee, _stringDefault);
-            set => AppSettings.AddOrUpdateValue(_employee, value);
-        }
-
-        public static string Trip
-        {
-            get => AppSettings.GetValueOrDefault(_trip, _stringDefault);
-            set => AppSettings.AddOrUpdateValue(_trip, value);
+            get => AppSettings.GetValueOrDefault(_customer, _stringDefault);
+            set => AppSettings.AddOrUpdateValue(_customer, value);
         }
 
         public static string Token

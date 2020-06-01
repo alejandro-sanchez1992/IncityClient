@@ -21,14 +21,12 @@ namespace IncityClient.Common.Models
 
         public string PicturePath { get; set; }
 
-        public UserType UserType { get; set; }
-
         public string FullName => $"{FirstName} {LastName}";
 
         public string FullNameWithDocument => $"{FirstName} {LastName} - {Document}";
 
         public string PictureFullPath => string.IsNullOrEmpty(PicturePath)
-            ? "https://travelexpensesweb.azurewebsites.net/images/noimage.png"
-            : $"https://travelexpensesweb.azurewebsites.net{PicturePath}";
+            ? "https://incityapp.azurewebsites.net/images/noimage.png"
+            : $"https://incityapp.azurewebsites.net{PicturePath}";
     }
 }

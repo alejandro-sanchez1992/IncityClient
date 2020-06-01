@@ -121,12 +121,12 @@ namespace IncityClient.Prism.ViewModels
                 Email = Email
             };
 
-            //Response<EmployeeResponse> response2 = await _apiService.GetUserByEmail(url, "api", "/Account/GetUserByEmail", "bearer", token.Token, emailRequest);
-            //EmployeeResponse userResponse = (EmployeeResponse)response2.Result;
+            Response<CustomerResponse> response2 = await _apiService.GetUserByEmail(url, "api", "/Account/GetUserByEmail", "bearer", token.Token, emailRequest);
+            CustomerResponse userResponse = (CustomerResponse)response2.Result;
 
-            //Settings.Employee = JsonConvert.SerializeObject(userResponse);
-            //Settings.Token = JsonConvert.SerializeObject(token);
-            //Settings.IsLogin = true;
+            Settings.Customer = JsonConvert.SerializeObject(userResponse);
+            Settings.Token = JsonConvert.SerializeObject(token);
+            Settings.IsLogin = true;
 
             IsRunning = false;
             IsEnabled = true;

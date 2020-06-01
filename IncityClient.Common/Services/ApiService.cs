@@ -105,6 +105,54 @@ namespace IncityClient.Common.Services
             }
         }
 
+        public async Task<Response<CustomerResponse>> GetUserByEmail(
+            string urlBase,
+            string servicePrefix,
+            string controller,
+            string tokenType,
+            string accessToken,
+            EmailRequest request)
+        {
+            try
+            {
+                string requestString = JsonConvert.SerializeObject(request);
+                StringContent content = new StringContent(requestString, Encoding.UTF8, "application/json");
+                HttpClient client = new HttpClient
+                {
+                    BaseAddress = new Uri(urlBase)
+                };
+
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(tokenType, accessToken);
+                string url = $"{servicePrefix}{controller}";
+                HttpResponseMessage response = await client.PostAsync(url, content);
+                string result = await response.Content.ReadAsStringAsync();
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return new Response<CustomerResponse>
+                    {
+                        IsSuccess = false,
+                        Message = result,
+                    };
+                }
+
+                CustomerResponse userResponse = JsonConvert.DeserializeObject<CustomerResponse>(result);
+                return new Response<CustomerResponse>
+                {
+                    IsSuccess = true,
+                    Result = userResponse
+                };
+            }
+            catch (Exception ex)
+            {
+                return new Response<CustomerResponse>
+                {
+                    IsSuccess = false,
+                    Message = ex.Message
+                };
+            }
+        }
+
         public async Task<Response<object>> ChangePasswordAsync(
             string urlBase,
             string servicePrefix,

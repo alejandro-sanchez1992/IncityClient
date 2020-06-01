@@ -33,6 +33,8 @@
                                 <controls:CustomEntry
                                     x:Name="txtEmail"
                                     Keyboard="Email"
+                                    Text="{Binding Email}"
+                                    Placeholder="{x:Static resources:Resource.EmailPlaceHolder}"
                                     Style="{StaticResource EntryStyle}">
 
                                 </controls:CustomEntry>    
@@ -44,6 +46,8 @@
                                     x:Name="txtPassword"
                                     Keyboard="Text"
                                     IsPassword="True"
+                                    Placeholder="{x:Static resources:Resource.PasswordPlaceHolder}"
+                                    Text="{Binding Password}"
                                     Style="{StaticResource EntryStyle}">
 
                                 </controls:CustomEntry>    
