@@ -23,5 +23,7 @@ namespace IncityClient.Common.interfaces
         Task<Response<object>> GetListAsync<T>(string urlBase, string servicePrefix, string controller, string tokenType, string accessToken);
 
         Task<Response<object>> PostAsync<T>(string urlBase, string servicePrefix, string controller, T model, string tokenType, string accessToken);
+
+        Task<Response<object>> GetTokenAsync(string urlBase, string servicePrefix, string controller, FacebookProfile request);
     }
 }

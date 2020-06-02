@@ -19,6 +19,8 @@ namespace IncityClient.Common.Models
 
         public string Address { get; set; }
 
+        public LoginType LoginType { get; set; }
+
         public string PicturePath { get; set; }
 
         public string FullName => $"{FirstName} {LastName}";
@@ -27,6 +29,6 @@ namespace IncityClient.Common.Models
 
         public string PictureFullPath => string.IsNullOrEmpty(PicturePath)
             ? "https://incityapp.azurewebsites.net/images/noimage.png"
-            : $"https://incityapp.azurewebsites.net{PicturePath}";
+            : LoginType == LoginType.App? $"https://incityapp.azurewebsites.net{PicturePath.Substring(1)}" : PicturePath;
     }
 }

@@ -88,6 +88,15 @@
 
                         </syncEffectsView:SfEffectsView>
 
+                        <Button BackgroundColor="#4768AD"
+                                CornerRadius="25"
+                                Command="{Binding LoginFacebookCommand}"
+                                HeightRequest="45"
+                                IsEnabled="{Binding IsEnabled}"
+                                ImageSource="ic_fb"
+                                Text="{x:Static resources:Resource.LoginFacebook}"
+                                TextColor="#FFFFFF"/>
+
                     </StackLayout>
 
                     <syncEffectsView:SfEffectsView

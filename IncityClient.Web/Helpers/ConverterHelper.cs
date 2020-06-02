@@ -31,6 +31,7 @@ namespace IncityClient.Web.Helpers
                 Email = customer.User.Email,
                 FirstName = customer.User.FirstName,
                 LastName = customer.User.LastName,
+                LoginType = customer.User.LoginType,
                 PhoneNumber = customer.User.PhoneNumber,
                 PicturePath = customer.User.PicturePath,
             };

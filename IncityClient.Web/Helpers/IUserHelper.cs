@@ -3,6 +3,7 @@ using IncityClient.Web.Data.Entities;
 using IncityClient.Web.Models;
 using System.Threading.Tasks;
 using System;
+using IncityClient.Common.Models;
 
 namespace IncityClient.Web.Helpers
 {
@@ -39,6 +40,8 @@ namespace IncityClient.Web.Helpers
         Task<IdentityResult> UpdateUserAsync(UserEntity user);
 
         Task<SignInResult> ValidatePasswordAsync(UserEntity user, string password);
+
+        Task<UserEntity> AddUserAsync(FacebookProfile model);
     }
 }
 

@@ -3,6 +3,8 @@ using IncityClient.Web.Data.Entities;
 using IncityClient.Web.Models;
 using System.Threading.Tasks;
 using System;
+using IncityClient.Common.Models;
+using IncityClient.Common.Enums;
 
 namespace IncityClient.Web.Helpers
 {
@@ -132,5 +134,32 @@ namespace IncityClient.Web.Helpers
         {
             await _signInManager.SignOutAsync();
         }
+
+        public async Task<UserEntity> AddUserAsync(FacebookProfile model)
+        {
+            UserEntity userEntity = new UserEntity
+            {
+                Address = "...",
+                Document = "...",
+                Email = model.Email,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                PicturePath = model.Picture?.Data?.Url,
+                PhoneNumber = "...",
+                UserName = model.Email,
+                LoginType = LoginType.Facebook
+            };
+
+            IdentityResult result = await _userManager.CreateAsync(userEntity, model.Id);
+            if (result != IdentityResult.Success)
+            {
+                return null;
+            }
+
+            UserEntity newUser = await GetUserAsync(model.Email);
+            await AddUserToRoleAsync(newUser, UserType.Customer.ToString());
+            return newUser;
+        }
+
     }
 }

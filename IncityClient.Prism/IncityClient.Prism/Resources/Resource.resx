@@ -258,4 +258,7 @@
     <data name="ConfirmAddress" xml:space="preserve">
         <value>Confirm your address.</value>
     </data>
+    <data name="LoginFacebook" xml:space="preserve">
+        <value>Login with Facebook.</value>
+    </data>    
 </root>

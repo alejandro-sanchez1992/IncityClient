@@ -18,6 +18,8 @@ namespace IncityClient.Prism.Helpers
 
         public static string Culture { get; set; }
 
+        public static string LoginFacebook => Resource.LoginFacebook;
+
         public static string GeolocationError => Resource.GeolocationError;
 
         public static string EndTrip => Resource.EndTrip;

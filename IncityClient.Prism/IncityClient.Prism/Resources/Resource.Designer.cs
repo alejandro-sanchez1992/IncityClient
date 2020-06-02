@@ -538,5 +538,11 @@ namespace IncityClient.Prism.Resources {
                 return ResourceManager.GetString("ConfirmAddress", resourceCulture);
             }
         }
+        
+        internal static string LoginFacebook {
+            get {
+                return ResourceManager.GetString("LoginFacebook", resourceCulture);
+            }
+        }
     }
 }

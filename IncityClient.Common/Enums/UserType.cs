@@ -4,6 +4,7 @@ namespace IncityClient.Common.Enums
     public enum UserType
     {
         Admin,
-        Employee
+        Customer,
+        Affiliate
     }
 }
