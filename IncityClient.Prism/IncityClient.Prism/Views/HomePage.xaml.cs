@@ -11,5 +11,9 @@ namespace IncityClient.Prism.Views
         {
             InitializeComponent();
         }
+
+        void AbsoluteLayout_Focused(System.Object sender, Xamarin.Forms.FocusEventArgs e)
+        {
+        }
     }
 }

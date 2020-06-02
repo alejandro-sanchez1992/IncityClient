@@ -69,10 +69,16 @@ namespace IncityClient.Web.Controllers.API
                 picturePath = _imageHelper.UploadImage(request.PictureArray, "Users");
             }
 
+            string document = string.Empty;
+            if(request.Document != null && request.Document.Length > 0)
+            {
+                document = request.Document;
+            }
+
             user = new UserEntity
             {
                 Address = request.Address,
-                Document = request.Document,
+                Document = document,
                 Email = request.Email,
                 FirstName = request.FirstName,
                 LastName = request.LastName,

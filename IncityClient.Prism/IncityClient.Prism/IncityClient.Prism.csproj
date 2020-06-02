@@ -32,6 +32,7 @@
     <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="18.1.0.54" />
     <PackageReference Include="Syncfusion.Xamarin.Core" Version="18.1.0.54" />
     <PackageReference Include="NControl" Version="0.9.1" />
+    <PackageReference Include="Syncfusion.Xamarin.SfRotator" Version="18.1.0.54" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />

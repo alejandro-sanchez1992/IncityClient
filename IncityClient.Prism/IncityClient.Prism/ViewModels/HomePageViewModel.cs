@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using IncityClient.Common.Models;
 using Prism.Commands;
 using Prism.Navigation;
 
@@ -10,15 +13,17 @@ namespace IncityClient.Prism.ViewModels
         private bool _isRunning;
         private bool _isEnabled;
         private static HomePageViewModel _instance;
+        private string _image;
+        private ObservableCollection<Carousel> _carousels = new ObservableCollection<Carousel>();
 
         public HomePageViewModel(
             INavigationService navigationService) : base(navigationService)
         {
             _instance = this;
             _navigationService = navigationService;
-            Title = "My Trips Page";
+            Title = "Incity";
             IsEnabled = true;
-            //LoadEmployee();
+            LoadCarousel();
         }
 
         public bool IsRunning
@@ -31,6 +36,44 @@ namespace IncityClient.Prism.ViewModels
         {
             get => _isEnabled;
             set => SetProperty(ref _isEnabled, value);
+        }
+
+        public string Image
+        {
+            get => _image;
+            set => SetProperty(ref _image, value);
+        }
+
+        public ObservableCollection<Carousel> Carousels {
+            get => _carousels;
+            set => SetProperty(ref _carousels, value);
+        }
+
+        public void LoadCarousel()
+        {
+            _carousels.Add(
+                new Carousel
+                {
+                    Image = "slider_1.jpg",
+                    Title = "slider 1"
+                }
+            );
+
+            _carousels.Add(
+                new Carousel
+                {
+                    Image = "slider_2.jpg",
+                    Title = "slider 2"
+                }
+            );
+
+            _carousels.Add(
+                new Carousel
+                {
+                    Image = "slider_3.jpg",
+                    Title = "slider 3"
+                }
+            );
         }
     }
 }

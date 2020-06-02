@@ -3,12 +3,159 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfRotator.XForms;assembly=Syncfusion.SfRotator.XForms"
              ios:Page.UseSafeArea="true"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="IncityClient.Prism.Views.HomePage"
              BackgroundColor="{StaticResource ColorBackgroud}"
              Title="{Binding Title}">
     <ContentPage.Content>
-        <Label>Hola Test</Label>
+        <StackLayout>
+            <ScrollView>
+                <StackLayout Padding="0">
+                    <syncfusion:SfRotator x:Name="rotator" 
+                                    NavigationDelay="2000" 
+                                    ItemsSource="{Binding Carousels}" 
+                                    SelectedIndex="2"
+                                    NavigationDirection="Horizontal"
+                                    NavigationStripMode="Dots"
+                                    HeightRequest="172"
+                                    BackgroundColor="#ececec">
+                        <syncfusion:SfRotator.ItemTemplate>
+                            <DataTemplate>
+                                <Image  Source="{Binding Image}"/>
+                            </DataTemplate>
+                        </syncfusion:SfRotator.ItemTemplate>
+                    </syncfusion:SfRotator>
+
+                    <Grid Padding="10, 10, 15 ,40">        
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Frame CornerRadius="10"
+                               Padding="0"
+                               Grid.Row="0"
+                               Margin="8"
+                               Grid.Column="0"
+                               HorizontalOptions="FillAndExpand"
+                               BackgroundColor="#fa883c">
+                            <RelativeLayout HorizontalOptions="Center">
+                                <StackLayout Padding="25"
+                                             HorizontalOptions="FillAndExpand">
+                                    <Image HeightRequest="80"
+                                            Source="restaurante" />
+                                    <Label Text="RESTAURANTES"
+                                            TextColor="White"
+                                            HorizontalOptions="CenterAndExpand"/>
+                                </StackLayout>
+                            </RelativeLayout>
+                        </Frame>
+
+                        <Frame CornerRadius="10"
+                               Padding="0"
+                               Grid.Row="0"
+                               Margin="8"
+                               Grid.Column="1"
+                               IsClippedToBounds="False"
+                               HorizontalOptions="FillAndExpand"
+                               BackgroundColor="#ffd859">
+                            <RelativeLayout HorizontalOptions="Center">
+                                <StackLayout Padding="25">
+                                    <Image HeightRequest="80"
+                                            Source="mandados" />
+                                    <Label Text="MANDADOS"
+                                            TextColor="White"
+                                            HorizontalOptions="CenterAndExpand"/>
+                                </StackLayout>
+                            </RelativeLayout>
+                        </Frame>
+
+                        <Frame CornerRadius="10"
+                               Padding="0"
+                               Grid.Row="1"
+                               Margin="8"
+                               Grid.Column="0"
+                               HorizontalOptions="FillAndExpand"
+                               BackgroundColor="#bbd661">
+                            <RelativeLayout HorizontalOptions="Center">
+                                <StackLayout Padding="25"
+                                             HorizontalOptions="FillAndExpand">
+                                    <Image HeightRequest="80"
+                                            Source="mercados" />
+                                    <Label Text="MERCADOS"
+                                            TextColor="White"
+                                            HorizontalOptions="CenterAndExpand"/>
+                                </StackLayout>
+                            </RelativeLayout>
+                        </Frame>
+
+                        <Frame CornerRadius="10"
+                               Padding="0"
+                               Grid.Row="1"
+                               Margin="8"
+                               Grid.Column="1"
+                               IsClippedToBounds="False"
+                               HorizontalOptions="FillAndExpand"
+                               BackgroundColor="#85dade">
+                            <RelativeLayout HorizontalOptions="Center">
+                                <StackLayout Padding="25">
+                                    <Image HeightRequest="80"
+                                            Source="farmacias" />
+                                    <Label Text="FARMACIAS"
+                                            TextColor="White"
+                                            HorizontalOptions="CenterAndExpand"/>
+                                </StackLayout>
+                            </RelativeLayout>
+                        </Frame>
+
+                        <Frame CornerRadius="10"
+                               Padding="0"
+                               Grid.Row="2"
+                               Margin="8"
+                               Grid.Column="0"
+                               HorizontalOptions="FillAndExpand"
+                               BackgroundColor="#02b1cc">
+                            <RelativeLayout HorizontalOptions="Center">
+                                <StackLayout Padding="25"
+                                             HorizontalOptions="FillAndExpand">
+                                    <Image HeightRequest="80"
+                                            Source="medico" />
+                                    <Label Text="MÉDICO EN CASA"
+                                            TextColor="White"
+                                            HorizontalOptions="CenterAndExpand"/>
+                                </StackLayout>
+                            </RelativeLayout>
+                        </Frame>
+
+                        <Frame CornerRadius="10"
+                               Padding="0"
+                               Grid.Row="2"
+                               Margin="8"
+                               Grid.Column="1"
+                               IsClippedToBounds="False"
+                               HorizontalOptions="FillAndExpand"
+                               BackgroundColor="#829eba">
+                            <RelativeLayout HorizontalOptions="Center">
+                                <StackLayout Padding="25">
+                                    <Image HeightRequest="80"
+                                            Source="licorera" />
+                                    <Label Text="LICORERAS"
+                                            TextColor="White"
+                                            HorizontalOptions="CenterAndExpand"/>
+                                </StackLayout>
+                            </RelativeLayout>
+                        </Frame>
+
+
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

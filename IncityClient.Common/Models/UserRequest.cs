@@ -5,7 +5,6 @@ namespace IncityClient.Common.Models
 {
     public class UserRequest
     {
-        [Required]
         public string Document { get; set; }
 
         [Required]

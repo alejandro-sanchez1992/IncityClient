@@ -92,12 +92,6 @@ namespace IncityClient.Prism.ViewModels
 
         private async Task<bool> ValidateDataAsync()
         {
-            if (string.IsNullOrEmpty(User.Document))
-            {
-                await App.Current.MainPage.DisplayAlert(Languages.Error, Languages.DocumentError, Languages.Accept);
-                return false;
-            }
-
             if (string.IsNullOrEmpty(User.FirstName))
             {
                 await App.Current.MainPage.DisplayAlert(Languages.Error, Languages.FirstNameError, Languages.Accept);
