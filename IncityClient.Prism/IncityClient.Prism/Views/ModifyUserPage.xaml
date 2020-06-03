@@ -3,11 +3,137 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             xmlns:controls="clr-namespace:IncityClient.Prism.Controls"
+             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             xmlns:syncEffectsView="clr-namespace:Syncfusion.XForms.EffectsView;assembly=Syncfusion.Core.XForms"
+             xmlns:resources="clr-namespace:IncityClient.Prism.Resources"
              ios:Page.UseSafeArea="true"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="IncityClient.Prism.Views.ModifyUserPage"
              BackgroundColor="{StaticResource ColorBackgroud}"
              Title="{Binding Title}">
     <ContentPage.Content>
+        <AbsoluteLayout>
+            <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1"
+                         AbsoluteLayout.LayoutFlags="All"
+                         Padding="5">
+
+                <ScrollView>
+                    <StackLayout Padding="20">
+                        <ffimageloading:CachedImage
+                            Aspect="AspectFit"
+                            Source="{Binding Image}"
+                            CacheDuration= "50"
+                            HeightRequest="150"
+                            Margin="5"
+                            RetryCount= "3"
+                            RetryDelay= "600">
+
+                            <ffimageloading:CachedImage.Transformations>
+                                <fftransformations:CircleTransformation />
+                            </ffimageloading:CachedImage.Transformations>
+
+                            <ffimageloading:CachedImage.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ChangeImageCommand}"/>
+                            </ffimageloading:CachedImage.GestureRecognizers>
+
+                        </ffimageloading:CachedImage>
+
+
+                        <Label Style="{StaticResource LableStyle}"
+                               Text="{x:Static resources:Resource.Document}" />    
+                        <Frame Style="{StaticResource FrameStyle}">    
+                            <controls:CustomEntry
+                                x:Name="txtDocument"
+                                Text="{Binding User.Document}"
+                                Keyboard="Numeric"
+                                Style="{StaticResource EntryStyle}">
+
+                            </controls:CustomEntry>    
+                        </Frame>
+
+                        <Label Style="{StaticResource LableStyle}" Text="{x:Static resources:Resource.FirstName}" />    
+                        <Frame Style="{StaticResource FrameStyle}">    
+                            <controls:CustomEntry
+                                x:Name="txtFirstName"
+                                Text="{Binding User.FirstName}"
+                                Keyboard="Text"
+                                Style="{StaticResource EntryStyle}">
+
+                            </controls:CustomEntry>    
+                        </Frame>
+
+                        <Label Style="{StaticResource LableStyle}" Text="{x:Static resources:Resource.LastName}" />    
+                        <Frame Style="{StaticResource FrameStyle}">    
+                            <controls:CustomEntry
+                                x:Name="txtLastName"
+                                Text="{Binding User.LastName}"
+                                Keyboard="Text"
+                                Style="{StaticResource EntryStyle}">
+
+                            </controls:CustomEntry>    
+                        </Frame>
+
+                        <Label Style="{StaticResource LableStyle}" Text="{x:Static resources:Resource.Address}" />    
+                        <Frame Style="{StaticResource FrameStyle}">    
+                            <controls:CustomEntry
+                                x:Name="txtAddress"
+                                Text="{Binding User.Address}"
+                                Keyboard="Text"
+                                Style="{StaticResource EntryStyle}">
+
+                            </controls:CustomEntry>    
+                        </Frame>
+
+                        <Label Style="{StaticResource LableStyle}" Text="{x:Static resources:Resource.Phone}" />    
+                        <Frame Style="{StaticResource FrameStyle}">    
+                            <controls:CustomEntry
+                                x:Name="txtPhone"
+                                Text="{Binding User.PhoneNumber}"
+                                Keyboard="Telephone"
+                                Style="{StaticResource EntryStyle}">
+
+                            </controls:CustomEntry>    
+                        </Frame>
+                    </StackLayout>
+
+                </ScrollView>
+
+
+                <syncEffectsView:SfEffectsView
+                    CornerRadius="0"
+                    TouchDownEffects="Scale">
+
+                    <controls:GradientButton
+                        Margin="20,10"
+                        BorderRadius="60"
+                        HeightRequest="45"
+                        EndColor="#d50000"
+                        HorizontalOptions="FillAndExpand"
+                        StartColor="#d70000"
+                        Text="{x:Static resources:Resource.Save}"
+                        Command="{Binding SaveCommand}"
+                        IsEnabled="{Binding IsEnabled}"
+                        TextColor="White" />
+
+                </syncEffectsView:SfEffectsView>
+
+                <controls:GradientButton
+                    Margin="20,10"
+                    BorderRadius="60"
+                    HeightRequest="45"
+                    EndColor="#DDDDDD"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="EndAndExpand"
+                    StartColor="#AAAAAA"
+                    Text="{x:Static resources:Resource.ChangePassword}"
+                    Command="{Binding ChangePasswordCommand}"
+                    IsEnabled="{Binding IsEnabled}"
+                    TextColor="White" />
+
+            </StackLayout>
+        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

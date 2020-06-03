@@ -220,7 +220,7 @@ namespace IncityClient.Prism.ViewModels
             IsRunning = false;
             IsEnabled = true;
 
-            await _navigationService.NavigateAsync("/TaxiMasterDetailPage/NavigationPage/HomePage");
+            await _navigationService.NavigateAsync($"/MainMasterDetailPage/NavigationPage/{nameof(HomePage)}");
             Password = string.Empty;
         }
     }
